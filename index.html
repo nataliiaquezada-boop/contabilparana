@@ -1,0 +1,353 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Escritório Contábil Paraná. Conheça os serviços contábeis e solicite informações para sua empresa.">
+<title>Escritório Contábil Paraná | Contabilidade e Consultoria</title>
+<style>
+:root{--verde:#176b5b;--escuro:#102a27;--fundo:#f5f8f6;--texto:#18312f;--cinza:#64736f;--borda:#dce6e1;--dourado:#e7b75b}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--fundo);color:var(--texto);line-height:1.65}
+a{color:var(--verde)}
+button,input,textarea,select{font:inherit}
+.container{width:min(1120px,92%);margin:auto}
+header{position:sticky;top:0;background:#ffffffed;backdrop-filter:blur(12px);border-bottom:1px solid var(--borda);z-index:10}
+nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{font-size:19px;font-weight:800;text-decoration:none;color:var(--texto)}
+.logo span{display:block;font-size:11px;letter-spacing:1px;color:var(--cinza);text-transform:uppercase}
+.links{display:flex;gap:22px;align-items:center}
+.links a{text-decoration:none;font-size:14px;font-weight:bold}
+.btn{display:inline-block;border:0;border-radius:30px;background:var(--verde);color:white;padding:13px 21px;text-decoration:none;font-weight:bold;cursor:pointer;transition:.2s}
+.btn:hover{background:#104c41;transform:translateY(-2px)}
+.btn.alt{background:white;color:var(--verde);border:1px solid var(--borda)}
+.menu{display:none;background:white;border:1px solid var(--borda);padding:9px 12px;border-radius:10px}
+.hero{padding:85px 0;background:radial-gradient(circle at 85% 20%,#e7b75b30,transparent 30%),linear-gradient(135deg,#f5f8f6,#e9f3ed)}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:center}
+.tag{color:var(--verde);font-size:12px;font-weight:bold;letter-spacing:2px;text-transform:uppercase}
+h1{font-size:clamp(38px,5vw,65px);line-height:1.08;letter-spacing:-2px;margin:18px 0}
+h2{font-size:clamp(28px,4vw,42px);line-height:1.15;letter-spacing:-1px;margin:12px 0 18px}
+h3{line-height:1.3}
+p{color:var(--cinza)}
+.hero p{font-size:18px;max-width:570px}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin:25px 0}
+.visual{background:linear-gradient(145deg,#19473e,#0c2825);color:white;border-radius:28px;padding:35px;min-height:360px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 20px 50px #102a2718;position:relative;overflow:hidden}
+.visual:after{content:"";position:absolute;width:250px;height:250px;border:1px solid #ffffff25;border-radius:50%;right:-80px;top:-80px}
+.visual h2{font-size:34px;position:relative;z-index:1}
+.visual p{color:#d3e4dc;position:relative;z-index:1}
+.visual-card{padding:18px;border:1px solid #ffffff35;background:#ffffff12;border-radius:15px;position:relative;z-index:1}
+section{padding:75px 0}
+.white{background:white}
+.intro{max-width:700px;margin-bottom:35px}
+.intro p{font-size:17px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:white;border:1px solid var(--borda);border-radius:19px;padding:25px;transition:.25s}
+.card:hover{transform:translateY(-5px);box-shadow:0 16px 35px #173d3010}
+.icon{height:45px;width:45px;display:grid;place-items:center;border-radius:13px;background:#e7f2ec;color:var(--verde);font-size:23px}
+.card h3{margin-bottom:8px}
+.card p{margin-bottom:0}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:45px;align-items:start}
+.info{padding:25px;background:#eaf3ed;border:1px solid #d5e5db;border-radius:18px}
+.info p{color:#35564b}
+.faq{border-top:1px solid var(--borda)}
+.accordion{border-bottom:1px solid var(--borda)}
+.question{width:100%;padding:22px 0;background:none;border:0;text-align:left;display:flex;justify-content:space-between;gap:20px;align-items:center;font-weight:bold;font-size:16px;color:var(--texto);cursor:pointer}
+.plus{font-size:25px;color:var(--verde);transition:transform .25s}
+.question[aria-expanded="true"] .plus{transform:rotate(45deg)}
+.panel{display:grid;grid-template-rows:0fr;transition:grid-template-rows .3s ease}
+.panel>div{overflow:hidden}
+.panel p{margin:0;padding:0 25px 22px 0}
+.accordion.open .panel{grid-template-rows:1fr}
+.contact{display:grid;grid-template-columns:.85fr 1.15fr;gap:45px}
+.form{background:white;border:1px solid var(--borda);border-radius:20px;padding:28px;box-shadow:0 15px 40px #173d300b}
+.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.field{display:flex;flex-direction:column;gap:6px}
+.field.full{grid-column:1/-1}
+label{font-weight:bold;font-size:14px}
+input,select,textarea{width:100%;border:1px solid #ccd9d2;border-radius:10px;padding:12px;background:white;color:var(--texto)}
+textarea{min-height:100px;resize:vertical}
+input:focus,select:focus,textarea:focus{outline:2px solid #176b5b40;border-color:var(--verde)}
+.small{font-size:12px;color:var(--cinza)}
+.status{display:none;background:#e7f2ec;padding:14px;border-radius:10px;color:#174c3c}
+.status.show{display:block}
+.legal{background:#eff4f1}
+footer{background:#0b211f;color:white;padding:45px 0 20px}
+footer p,footer a{color:#c3d4cc}
+.footergrid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:30px}
+footer a{display:block;text-decoration:none;margin:7px 0}
+.copyright{border-top:1px solid #ffffff25;margin-top:30px;padding-top:18px;font-size:12px;color:#b9cbc3}
+.cookie{position:fixed;z-index:30;left:15px;right:15px;bottom:15px;max-width:900px;margin:auto;padding:22px;background:white;border:1px solid var(--borda);box-shadow:0 15px 60px #0003;border-radius:18px;display:none}
+.cookie.show{display:block;animation:subir .3s ease}
+.cookie-row{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.cookie p{font-size:14px;margin:5px 0}
+.cookie-actions{display:flex;gap:8px;flex-wrap:wrap}
+.cookie-settings{display:none;border-top:1px solid var(--borda);margin-top:14px;padding-top:12px}
+.cookie-settings.show{display:block}
+.toast{position:fixed;bottom:20px;right:20px;background:var(--escuro);color:white;border-radius:12px;padding:15px;display:none;z-index:40}
+.toast.show{display:block}
+@keyframes subir{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:800px){
+ .hero-grid,.about,.contact{grid-template-columns:1fr}
+ .grid{grid-template-columns:repeat(2,1fr)}
+ .links{display:none;position:absolute;top:76px;left:0;right:0;background:white;padding:20px;flex-direction:column;align-items:flex-start;border-bottom:1px solid var(--borda)}
+ .links.open{display:flex}.menu{display:block}.navcta{display:none}
+ .cookie-row{align-items:flex-start;flex-direction:column}
+ .footergrid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:520px){
+ section{padding:55px 0}.grid,.formgrid,.footergrid{grid-template-columns:1fr}
+ .hero{padding:55px 0}.visual{min-height:300px;padding:25px}
+ .form{padding:20px}.cookie{padding:17px}
+ .cookie-actions .btn{padding:10px 12px;font-size:12px}
+}
+@media(prefers-reduced-motion:reduce){
+ *,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}
+}
+</style>
+</head>
+<body>
+
+<header>
+ <nav class="container">
+  <a class="logo" href="#inicio">Escritório Contábil Paraná
+   <span>W R Contabilidade e Consultoria LTDA</span>
+  </a>
+  <div class="links" id="links">
+   <a href="#servicos">Serviços</a><a href="#sobre">Sobre</a>
+   <a href="#duvidas">Dúvidas</a><a href="#contato">Contato</a>
+   <a href="#privacidade">Privacidade</a>
+  </div>
+  <a class="btn navcta" href="#contato">Solicitar contato →</a>
+  <button class="menu" id="menu" aria-label="Abrir menu" aria-expanded="false">☰</button>
+ </nav>
+</header>
+
+<main>
+<section class="hero" id="inicio">
+ <div class="container hero-grid">
+  <div>
+   <span class="tag">Contabilidade consultiva</span>
+   <h1>Mais clareza para cuidar da sua empresa.</h1>
+   <p>Orientação contábil próxima e organizada para ajudar você a entender as obrigações do negócio e tomar decisões com mais segurança.</p>
+   <div class="actions">
+    <a class="btn" href="#contato">Converse com a equipe →</a>
+    <a class="btn alt" href="#servicos">Conheça os serviços</a>
+   </div>
+   <p>✓ Comunicação clara　 ✓ Atendimento personalizado</p>
+  </div>
+  <div class="visual">
+   <span class="tag" style="color:#c6e5d5">Contabilidade & consultoria</span>
+   <h2>Seu negócio merece atenção aos detalhes.</h2>
+   <p>Converse com o escritório sobre a realidade e as necessidades da sua empresa.</p>
+   <div class="visual-card"><strong>Atendimento orientado às suas necessidades</strong><br><small>Serviços, prazos e valores devem ser confirmados antes da contratação.</small></div>
+  </div>
+ </div>
+</section>
+
+<section class="white" id="servicos">
+ <div class="container">
+  <div class="intro"><span class="tag">Como podemos ajudar</span><h2>Serviços contábeis para apoiar sua rotina.</h2><p>Confirme diretamente com o escritório quais serviços estão disponíveis para o seu caso.</p></div>
+  <div class="grid">
+   <article class="card"><div class="icon">▦</div><h3>Rotinas contábeis</h3><p>Organização e acompanhamento de informações contábeis conforme a necessidade da empresa.</p></article>
+   <article class="card"><div class="icon">↗</div><h3>Orientação tributária</h3><p>Informações sobre obrigações fiscais e alternativas aplicáveis à situação do negócio.</p></article>
+   <article class="card"><div class="icon">▤</div><h3>Rotinas trabalhistas</h3><p>Apoio em rotinas de folha e obrigações trabalhistas, conforme o serviço contratado.</p></article>
+   <article class="card"><div class="icon">＋</div><h3>Abertura de empresa</h3><p>Orientação sobre etapas e documentos para formalização ou regularização.</p></article>
+   <article class="card"><div class="icon">◎</div><h3>Organização empresarial</h3><p>Apoio para compreender informações do negócio e organizar processos contábeis.</p></article>
+   <article class="card"><div class="icon">☏</div><h3>Atendimento consultivo</h3><p>Converse sobre sua necessidade e confirme o escopo de atendimento disponível.</p></article>
+  </div>
+ </div>
+</section>
+
+<section id="sobre">
+ <div class="container about">
+  <div><span class="tag">Sobre o escritório</span><h2>Transparência desde o primeiro contato.</h2>
+   <p>Antes de contratar, solicite informações sobre serviços, honorários, prazos, responsabilidades e condições de atendimento.</p>
+   <a class="btn" href="#contato">Falar sobre minha empresa →</a>
+  </div>
+  <div class="info"><h3>Informações empresariais</h3>
+   <p><strong>Razão social:</strong> W R Contabilidade e Consultoria LTDA</p>
+   <p><strong>Nome divulgado:</strong> Escritório Contábil Paraná</p>
+   <p><strong>CNPJ informado:</strong> 10.783.721/0001-79</p>
+   <p><strong>Endereço informado:</strong> Avenida Brasil, 832, Centro, Nova Londrina – PR, CEP 87970-000</p>
+   <p><strong>Telefone informado:</strong> (44) 99902-8519</p>
+   <p><strong>Atenção:</strong> confirme todos os dados cadastrais e de contato antes da publicação.</p>
+  </div>
+ </div>
+</section>
+
+<section class="white" id="duvidas">
+ <div class="container">
+  <div class="intro"><span class="tag">Perguntas frequentes</span><h2>Informação antes de decidir.</h2></div>
+  <div class="faq">
+   <div class="accordion"><button class="question" aria-expanded="false">Quais serviços estão disponíveis?<span class="plus">＋</span></button><div class="panel"><div><p>O escopo precisa ser confirmado diretamente com o escritório. A disponibilidade pode variar conforme o tipo de empresa, regime tributário e demanda apresentada.</p></div></div></div>
+   <div class="accordion"><button class="question" aria-expanded="false">Como funciona o orçamento?<span class="plus">＋</span></button><div class="panel"><div><p>Solicite uma proposta com serviços incluídos, honorários, prazos, responsabilidades e possíveis custos adicionais. O envio de uma mensagem não constitui contratação.</p></div></div></div>
+   <div class="accordion"><button class="question" aria-expanded="false">O formulário envia meus dados?<span class="plus">＋</span></button><div class="panel"><div><p>Não nesta demonstração. O formulário valida os campos no navegador, mas não envia nem armazena as informações. Para receber solicitações, é necessário integrar um serviço seguro.</p></div></div></div>
+   <div class="accordion"><button class="question" aria-expanded="false">Como meus dados pessoais são tratados?<span class="plus">＋</span></button><div class="panel"><div><p>Consulte a Política de Privacidade. O responsável pelo site deve confirmar finalidades, bases legais, fornecedores e canal para solicitações dos titulares conforme a LGPD.</p></div></div></div>
+   <div class="accordion"><button class="question" aria-expanded="false">Esta página garante aprovação no Google Ads?<span class="plus">＋</span></button><div class="panel"><div><p>Não. A aprovação depende da página publicada, do anúncio, do domínio, da oferta e da análise do Google. As informações devem ser verdadeiras, verificáveis e coerentes com o anúncio.</p></div></div></div>
+  </div>
+ </div>
+</section>
+
+<section id="contato">
+ <div class="container contact">
+  <div><span class="tag">Próximo passo</span><h2>Conte o que sua empresa precisa.</h2>
+   <p>Envie uma solicitação inicial. Não inclua senhas, documentos fiscais, dados bancários ou informações confidenciais neste formulário demonstrativo.</p>
+   <p><strong>Endereço informado</strong><br>Avenida Brasil, 832, Centro<br>Nova Londrina – PR, CEP 87970-000</p>
+   <p><strong>Telefone informado</strong><br>(44) 99902-8519 — confirme se está ativo.</p>
+   <p><strong>E-mail</strong><br>Insira aqui o e-mail oficial verificado.</p>
+  </div>
+  <form class="form" id="form">
+   <h3>Solicitar contato</h3>
+   <p class="small">Demonstração: os dados não são transmitidos para nenhum servidor.</p>
+   <div class="formgrid">
+    <div class="field"><label for="nome">Nome *</label><input id="nome" name="nome" required maxlength="100" autocomplete="name" placeholder="Seu nome"></div>
+    <div class="field"><label for="email">E-mail *</label><input id="email" name="email" type="email" required maxlength="150" autocomplete="email" placeholder="voce@empresa.com"></div>
+    <div class="field"><label for="empresa">Empresa</label><input id="empresa" name="empresa" maxlength="150" autocomplete="organization" placeholder="Nome da empresa"></div>
+    <div class="field"><label for="assunto">Assunto *</label><select id="assunto" name="assunto" required><option value="">Selecione</option><option>Serviços contábeis</option><option>Orientação tributária</option><option>Rotinas trabalhistas</option><option>Abertura ou regularização</option><option>Outro</option></select></div>
+    <div class="field full"><label for="mensagem">Mensagem *</label><textarea id="mensagem" name="mensagem" required maxlength="1000" placeholder="Descreva brevemente sua necessidade"></textarea></div>
+    <div class="field full"><label style="font-weight:normal"><input style="width:auto" type="checkbox" id="aceite" required> Li a <a href="#privacidade">Política de Privacidade</a> e concordo com o uso dos dados para responder à solicitação.</label></div>
+    <div class="field full"><button class="btn" type="submit">Validar solicitação →</button><div class="status" id="status" role="status" aria-live="polite"></div></div>
+   </div>
+  </form>
+ </div>
+</section>
+
+<section class="legal" id="privacidade">
+ <div class="container">
+  <div class="intro"><span class="tag">Transparência</span><h2>Políticas e condições de uso.</h2><p>Estes textos são modelos iniciais. Revise-os e substitua os campos pendentes para refletir as práticas reais da empresa. Textos genéricos não garantem conformidade legal nem aprovação de anúncios.</p></div>
+  <div class="faq">
+   <div class="accordion"><button class="question" aria-expanded="false">Política de Privacidade e LGPD<span class="plus">＋</span></button><div class="panel"><div>
+    <p><strong>Última atualização:</strong> [inserir data real]. <strong>Controlador:</strong> W R Contabilidade e Consultoria LTDA, CNPJ informado 10.783.721/0001-79, sujeito à confirmação.</p>
+    <p><strong>Dados tratados:</strong> esta demonstração não transmite nem armazena os dados do formulário. Se forem instaladas ferramentas ou integrações, poderão ser tratados dados de contato, mensagens e registros técnicos conforme a configuração real.</p>
+    <p><strong>Finalidades e bases legais:</strong> o controlador deverá indicar as finalidades específicas e a base legal aplicável para cada operação de tratamento, conforme a LGPD. Não use este modelo como confirmação automática de uma base legal.</p>
+    <p><strong>Compartilhamento e retenção:</strong> informe os fornecedores e destinatários reais, os dados compartilhados e os prazos de retenção. Conserve dados apenas pelo tempo necessário ou exigido por lei.</p>
+    <p><strong>Direitos dos titulares:</strong> o titular pode exercer os direitos previstos na LGPD, conforme aplicáveis, incluindo acesso, correção, informação sobre tratamento e compartilhamento, eliminação quando cabível e revogação de consentimento. Canal de privacidade: [inserir e-mail oficial].</p>
+    <p><strong>Segurança:</strong> o responsável deverá adotar medidas técnicas e administrativas adequadas, usar HTTPS e limitar acessos. Evite coletar dados sensíveis desnecessários.</p>
+    <p><strong>Contato do controlador:</strong> [confirmar endereço e e-mail oficial]. Ajuste este texto às operações reais e, se necessário, procure orientação jurídica.</p>
+   </div></div></div>
+
+   <div class="accordion"><button class="question" aria-expanded="false">Política de Cookies<span class="plus">＋</span></button><div class="panel"><div>
+    <p>Cookies e tecnologias semelhantes podem ser usados para funções essenciais, lembrar preferências, medir audiência ou apoiar publicidade.</p>
+    <p>Nesta demonstração, a preferência de cookies é guardada no armazenamento local do navegador. Não há scripts de analytics, remarketing ou publicidade de terceiros instalados por este código.</p>
+    <p>Se forem adicionadas ferramentas externas, identifique fornecedores, finalidades, duração, dados envolvidos e eventuais transferências. Bloqueie tecnologias não essenciais até obter o consentimento quando exigido.</p>
+    <p>O visitante pode aceitar ou rejeitar cookies não essenciais e alterar sua escolha posteriormente pelo botão de configurações. Apagar os dados do navegador pode remover a preferência salva.</p>
+    <p>O responsável deve auditar os cookies reais do domínio. Um banner isolado não garante conformidade com a LGPD.</p>
+    <button type="button" class="btn alt" id="configurar">Configurar cookies</button>
+   </div></div></div>
+
+   <div class="accordion"><button class="question" aria-expanded="false">Termos de Uso do Site<span class="plus">＋</span></button><div class="panel"><div>
+    <p>O visitante compromete-se a usar este site de forma lícita, sem tentar comprometer sua segurança, interromper seu funcionamento ou enviar conteúdo ilegal.</p>
+    <p>As informações têm caráter geral e não substituem análise contábil, tributária, trabalhista ou jurídica individual. O conteúdo deve ser mantido atualizado e revisado pelo responsável.</p>
+    <p>Não é permitido reproduzir conteúdo protegido sem autorização, ressalvadas as hipóteses legais. Links externos, quando existentes, podem ter termos próprios.</p>
+    <p>O site pode sofrer manutenção ou alterações. Nada nestes termos exclui direitos que não possam ser afastados por lei.</p>
+    <p><strong>Responsável:</strong> W R Contabilidade e Consultoria LTDA, dados sujeitos a confirmação. <strong>Contato:</strong> [inserir e-mail oficial]. <strong>Vigência:</strong> [inserir data real].</p>
+   </div></div></div>
+
+   <div class="accordion"><button class="question" aria-expanded="false">Termos de Serviço e Contratação<span class="plus">＋</span></button><div class="panel"><div>
+    <p>O envio de mensagem pelo site não constitui contratação nem garante aceitação do serviço. A contratação depende de confirmação expressa e formalização das condições aplicáveis.</p>
+    <p>A proposta ou contrato deverá especificar serviços incluídos e excluídos, documentos e responsabilidades do cliente, prazos, honorários, pagamento, custos adicionais, canais de atendimento e condições de encerramento.</p>
+    <p>O cliente deve fornecer informações verdadeiras e tempestivas. O escritório deverá confirmar o escopo e as obrigações profissionais antes de assumir qualquer demanda.</p>
+    <p><strong>Canal de contratação:</strong> [inserir contato oficial verificado]. Este texto não substitui proposta ou contrato individual.</p>
+   </div></div></div>
+
+   <div class="accordion"><button class="question" aria-expanded="false">Preços, cancelamento e condições comerciais<span class="plus">＋</span></button><div class="panel"><div>
+    <p>Valores, prazos, disponibilidade, formas de pagamento e condições de cancelamento devem ser informados de maneira clara antes da contratação.</p>
+    <p>Solicite uma proposta por escrito e confirme os serviços incluídos e os custos aplicáveis. Quando pertinente, serão observados os direitos previstos na legislação brasileira, conforme a natureza da relação.</p>
+   </div></div></div>
+
+   <div class="accordion"><button class="question" aria-expanded="false">Acessibilidade e contato<span class="plus">＋</span></button><div class="panel"><div>
+    <p>Esta página foi estruturada para diferentes tamanhos de tela, navegação por teclado e preferência por movimento reduzido. Para relatar uma barreira de acesso, utilize o canal oficial: [inserir e-mail ou telefone verificado].</p>
+   </div></div></div>
+  </div>
+ </div>
+</section>
+</main>
+
+<footer>
+ <div class="container">
+  <div class="footergrid">
+   <div><h3>Escritório Contábil Paraná</h3><p>W R Contabilidade e Consultoria LTDA</p><p>Informação clara para iniciar uma conversa sobre as necessidades contábeis do seu negócio.</p></div>
+   <div><h3>Navegação</h3><a href="#servicos">Serviços</a><a href="#sobre">Sobre</a><a href="#duvidas">Perguntas frequentes</a><a href="#contato">Contato</a></div>
+   <div><h3>Informações legais</h3><a href="#privacidade">Política de Privacidade</a><a href="#privacidade">Política de Cookies</a><a href="#privacidade">Termos de Uso</a><a href="#privacidade">Termos de Serviço</a><button class="btn alt" id="footerCookies" style="margin-top:10px">Configurar cookies</button></div>
+  </div>
+  <div class="copyright">© <span id="ano"></span> W R Contabilidade e Consultoria LTDA. CNPJ informado: 10.783.721/0001-79. Confirme os dados antes da publicação.</div>
+ </div>
+</footer>
+
+<div class="cookie" id="cookie" role="dialog" aria-label="Preferências de cookies">
+ <div class="cookie-row"><div><strong>Suas preferências de privacidade</strong><p>Esta demonstração usa armazenamento local para lembrar sua escolha e não instala cookies de publicidade ou análise.</p></div>
+  <div class="cookie-actions"><button class="btn" id="aceitar">Aceitar</button><button class="btn alt" id="rejeitar">Rejeitar não essenciais</button><button class="btn alt" id="gerenciar">Configurar</button></div>
+ </div>
+ <div class="cookie-settings" id="cookieSettings"><p>Necessários: sempre ativos. Cookies analíticos e publicitários não estão instalados nesta demonstração.</p><label><input type="checkbox" checked disabled style="width:auto"> Necessários</label><button class="btn" id="salvar">Salvar preferências</button></div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+ const $=s=>document.querySelector(s);
+ $('#ano').textContent=new Date().getFullYear();
+
+ // Accordions animados
+ document.querySelectorAll('.question').forEach(button=>{
+  button.addEventListener('click',()=>{
+   const item=button.closest('.accordion');
+   const open=button.getAttribute('aria-expanded')==='true';
+   button.setAttribute('aria-expanded',String(!open));
+   item.classList.toggle('open',!open);
+  });
+ });
+
+ // Menu responsivo
+ $('#menu').addEventListener('click',()=>{
+  const links=$('#links');
+  const open=links.classList.toggle('open');
+  $('#menu').setAttribute('aria-expanded',String(open));
+  $('#menu').textContent=open?'✕':'☰';
+ });
+ document.querySelectorAll('#links a').forEach(a=>a.addEventListener('click',()=>{
+  $('#links').classList.remove('open');
+  $('#menu').setAttribute('aria-expanded','false');
+  $('#menu').textContent='☰';
+ }));
+
+ // Formulário demonstrativo: valida, mas não envia os dados
+ $('#form').addEventListener('submit',event=>{
+  event.preventDefault();
+  const status=$('#status');
+  status.textContent='Demonstração concluída: os campos foram validados, mas nenhuma informação foi enviada. Para receber contatos, conecte o formulário a um serviço seguro e atualize a Política de Privacidade.';
+  status.classList.add('show');
+ });
+
+ // Preferências de cookies
+ const cookie=$('#cookie'), settings=$('#cookieSettings'), toast=$('#toast');
+ function aviso(texto){
+  toast.textContent=texto;toast.classList.add('show');
+  setTimeout(()=>toast.classList.remove('show'),3500);
+ }
+ function consentimento(){
+  try{return JSON.parse(localStorage.getItem('pr-cookie-consent')||'null')}
+  catch(e){return null}
+ }
+ function salvar(escolha){
+  try{localStorage.setItem('pr-cookie-consent',JSON.stringify({
+   necessary:true,nonEssential:false,choice:escolha,date:new Date().toISOString()
+  }))}catch(e){}
+  cookie.classList.remove('show');settings.classList.remove('show');
+  aviso('Preferência salva neste navegador.');
+ }
+ function abrirCookies(){
+  cookie.classList.add('show');settings.classList.add('show');
+ }
+ if(!consentimento())cookie.classList.add('show');
+ $('#aceitar').addEventListener('click',()=>salvar('accepted'));
+ $('#rejeitar').addEventListener('click',()=>salvar('rejected'));
+ $('#gerenciar').addEventListener('click',()=>settings.classList.toggle('show'));
+ $('#configurar').addEventListener('click',abrirCookies);
+ $('#footerCookies').addEventListener('click',abrirCookies);
+ $('#salvar').addEventListener('click',()=>salvar('custom'));
+})();
+</script>
+</body>
+</html>
